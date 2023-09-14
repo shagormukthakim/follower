@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Username Extractor</title>
+    <script>
+        function extractUsernames() {
+            const text = document.getElementById('inputText').value;
+            const words = text.split(/\s+/);
+            const usernames = words.filter(word => word.endsWith("'s") && word !== "'s")
+                                   .map(username => `@${username.slice(0, -2)}`);
+
+            if (usernames.length > 0) {
+                document.getElementById('output').textContent = usernames.join('\n');
+                document.getElementById('count').textContent = `Number of usernames found: ${usernames.length}`;
+            } else {
+                document.getElementById('output').textContent = "No usernames found!";
+                document.getElementById('count').textContent = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="shagor.JPG" alt="@shagormukthakim" style="height: 100px;width: 100px; border-radius: 100px;">
+    <h3>Step ~ 1 : একটি Fake Account create করেন ❗️<br>
+
+        Step ~ 2 : যে Account থেকে Event হচ্ছে সেই Account এর Following এর সবাইকে আপনার Fake Account এর Following এ নিন !<br>
+        
+        Step ~ 3 : Google Crome এ সেই Fake Account Log In করে Desktop Mode করেন । তারপর সেই Fake Account থেকে আপনার Main account search দিন । বাকিটা @shagormukthakim Account এ Video make করে দেওয়া আছে</h3>
+    <textarea id="inputText" rows="10" cols="50" placeholder="Paste the text here..."></textarea>
+    <br>
+    <button onclick="extractUsernames()">যারা Follow Back করেছে তাদের Username 🔻</button>
+    <br>
+    <pre id="output"></pre>
+    <div id="count"></div>
+</body>
+</html>
